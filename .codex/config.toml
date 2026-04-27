@@ -1,0 +1,10 @@
+# Codex CLI configuration for the antigravity-orchestra template.
+# See: https://developers.openai.com/codex/guides/agents-md
+
+# Allow project-level AGENTS.md docs up to 64 KiB. The default (32 KiB) can
+# truncate the root AGENTS.md plus this file's combined context.
+project_doc_max_bytes = 65536
+
+# If AGENTS.md is missing in a directory, fall back to CLAUDE.md so a
+# Claude-first repo still seeds Codex with team conventions.
+project_doc_fallback_filenames = ["CLAUDE.md"]

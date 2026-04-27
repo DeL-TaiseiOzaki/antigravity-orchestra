@@ -1,0 +1,59 @@
+# Antigravity Browser allowlist (distributed copy).
+#
+# This file is the *distributed* copy bundled with the template. The
+# *effective* copy that Antigravity actually loads lives at
+# ~/.gemini/antigravity/browserAllowlist.txt — projects do not get to widen
+# a user's effective allowlist silently. Treat this file as a recommendation
+# and merge into the user-level file deliberately.
+#
+# Wildcards: a leading `*.` matches one or more subdomain labels.
+# `*` alone matches a single label segment.
+# Lines starting with `#` are comments. Blank lines are ignored.
+
+# ---- Source hosting / collaboration ----
+github.com
+*.github.com
+gitlab.com
+*.gitlab.com
+bitbucket.org
+
+# ---- Official documentation ----
+antigravity.google
+*.antigravity.google
+docs.anthropic.com
+docs.claude.com
+developers.openai.com
+ai.google.dev
+developer.mozilla.org
+nodejs.org
+docs.python.org
+go.dev
+doc.rust-lang.org
+docs.microsoft.com
+learn.microsoft.com
+
+# ---- Package registries ----
+www.npmjs.com
+pypi.org
+crates.io
+pkg.go.dev
+nuget.org
+
+# ---- Standards bodies ----
+www.w3.org
+tc39.es
+www.rfc-editor.org
+
+# ---- Cloud provider docs (read-only) ----
+docs.aws.amazon.com
+cloud.google.com
+docs.microsoft.com
+docs.cloudflare.com
+
+# ---- AI tooling docs ----
+agents.md
+modelcontextprotocol.io
+docs.cursor.com
+
+# ---- Project-specific (add per repo, keep tidy) ----
+# example.internal.company
