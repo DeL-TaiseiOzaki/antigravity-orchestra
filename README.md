@@ -15,7 +15,7 @@ the wide-context model conducts; the deep-reasoning model specializes.
 
 ```bash
 git clone --depth 1 https://github.com/DeL-TaiseiOzaki/antigravity-orchestra.git .starter \
-  && cp -r .starter/.agent .starter/.agents .starter/.claude .starter/.codex .starter/.gemini . \
+  && cp -r .starter/.agents .starter/.claude .starter/.codex .starter/.gemini . \
   && cp .starter/AGENTS.md .starter/CLAUDE.md . \
   && rm -rf .starter
 ```
@@ -34,8 +34,8 @@ project's specifics. Then read [`SETUP.md`](./SETUP.md) for IDE configuration.
                 │                                    │
                 │   reads:  AGENTS.md                │
                 │          .agents/skills/           │
-                │          .agent/workflows/         │
-                │          .agent/rules/             │
+                │          .agents/workflows/        │
+                │          .agents/rules/            │
                 │          .gemini/antigravity/...   │
                 └─────────────┬──────────────────────┘
                               │ (embedded terminal)
@@ -64,7 +64,7 @@ project's specifics. Then read [`SETUP.md`](./SETUP.md) for IDE configuration.
 
 The default workflow is the **sandwich**: Plan with Claude → Implement in
 Antigravity Agent Manager (delegate side-quests to Codex) → Review with a
-fresh Claude session. See `.agent/workflows/plan-then-implement.md`.
+fresh Claude session. See `.agents/workflows/plan-then-implement.md`.
 
 ## Language conventions
 
@@ -82,10 +82,10 @@ fresh Claude session. See `.agent/workflows/plan-then-implement.md`.
 ├── README.md                 this file
 ├── SETUP.md                  install + configure Antigravity / Claude / Codex
 ├── LICENSE                   MIT
-├── .agent/                   Antigravity-specific
-│   ├── workflows/            deterministic procedures (// turbo enabled)
-│   └── rules/                always-on workspace guidance
-├── .agents/skills/           Progressive Disclosure skills (shared by Antigravity & Claude)
+├── .agents/                  AGENTS.md ecosystem (shared by Antigravity & Claude)
+│   ├── skills/               Progressive Disclosure skills (auto-loaded when relevant)
+│   ├── workflows/            Deterministic procedures, invoked via /<workflow-name>
+│   └── rules/                Workspace rules (trigger: always_on | model_decision)
 ├── .claude/                  Claude Code config (settings, agents, hooks)
 ├── .codex/                   Codex CLI config (AGENTS.md, config.toml)
 ├── .gemini/antigravity/      browser allowlist (prompt-injection defense)
@@ -93,7 +93,8 @@ fresh Claude session. See `.agent/workflows/plan-then-implement.md`.
     ├── DESIGN.md             append-only architectural decisions
     ├── WHY_ANTIGRAVITY.md    why we picked this stack, with honest trade-offs
     ├── plans/                one plan per feature
-    └── research/             investigations and link dumps
+    ├── research/             investigations and link dumps
+    └── handover/             session checkpoints (created by /checkpointing)
 ```
 
 ## What this template is not

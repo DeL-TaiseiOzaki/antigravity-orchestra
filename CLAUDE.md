@@ -16,13 +16,13 @@ shared document.
 - **Reviews use `--verbose`.** It surfaces the reasoning needed to argue
   about subtle bugs.
 - **Pipe input is a first-class tool.** Examples:
-  - `git diff main...HEAD | claude "Apply the code-review skill, output Critical/High/Medium/Low."`
-  - `docker logs api --since 10m | claude "Group recurring errors and propose root causes."`
+  - `git diff main...HEAD | claude "Apply the team-review skill, output Critical/High/Medium/Low."`
+  - `docker logs api --since 10m | claude "Apply the troubleshoot skill — group recurring errors and propose root causes."`
 - **Skills are shared.** Read `.agents/skills/<name>/SKILL.md` — the same
   skills serve Antigravity. Don't duplicate them under `.claude/`.
-- **Hand-off uses the checkpointing skill.** When a session is getting long
-  (~20 turns) or context is degrading, run the `checkpointing` skill before
-  the user has to ask.
+- **Hand-off uses the checkpointing workflow.** When a session is getting
+  long (~20 turns) or context is degrading, run the `/checkpointing`
+  workflow before the user has to ask.
 - **Stay inside the allowlist.** If a command isn't on the allowlist in
   `.claude/settings.json`, propose it for review instead of working around
   it with a compound command.

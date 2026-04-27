@@ -33,7 +33,7 @@ description: Default sandwich workflow. Plan with Claude, implement in parallel 
    session — same reasoning will fail to see the same bugs).
 2. Pipe the cumulative diff in:
    ```bash
-   git diff main...HEAD | claude --verbose "Apply the code-review skill."
+   git diff main...HEAD | claude --verbose "Apply the team-review skill."
    ```
 3. Save the report to `docs/reviews/<feature>-<date>.md`.
 4. Address Critical and High findings before merging. Medium becomes a

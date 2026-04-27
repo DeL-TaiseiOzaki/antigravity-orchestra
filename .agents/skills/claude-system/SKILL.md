@@ -7,7 +7,7 @@ description: Use to decide when to invoke the Claude Code CLI and how. Claude sp
 
 ## Send to Claude
 - Plan drafting (use `plan` skill, write to `docs/plans/`).
-- Hypercritical code review (use `code-review` skill).
+- Hypercritical code review (use `team-review` skill).
 - "What breaks if I change X?" impact analysis across many files.
 - Log triage and root-cause grouping over piped logs.
 - Architectural trade-off discussions where both sides need to be argued.
@@ -27,7 +27,7 @@ Output goes to `docs/plans/<feature>.md`.
 Reviews must come from a session that **didn't write the code**. Otherwise
 the same reasoning that wrote the bug will fail to see it.
 ```
-git diff main...HEAD | claude --verbose "Apply the code-review skill."
+git diff main...HEAD | claude --verbose "Apply the team-review skill."
 ```
 
 ### Pipe analysis

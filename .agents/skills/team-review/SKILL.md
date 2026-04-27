@@ -1,9 +1,12 @@
 ---
-name: code-review
-description: Use when reviewing a diff, a PR, or a series of recent commits. Produces a severity-graded report covering correctness, security, performance, concurrency, maintainability, and Definition of Done compliance. Pairs well with pipe input.
+name: team-review
+description: Use when reviewing a diff, a PR, or a series of recent commits. Produces a severity-graded report covering correctness, security, performance, concurrency, maintainability, and Definition of Done compliance. Pairs well with pipe input and with Codex cross-checks.
 ---
 
-# code-review
+# team-review
+
+A multi-perspective review skill. The goal is not "find one bug" — it's
+to walk every angle below and stay honest about uncertainty.
 
 ## Checklist (apply in order)
 1. **Correctness** — Does the code do what the plan says? Edge cases?
@@ -31,10 +34,16 @@ Each finding includes: file path, line range, what's wrong, why it matters,
 the smallest viable fix.
 
 ## Pipe input
-- `git diff main...HEAD | claude "Apply the code-review skill."`
-- `git show <sha> -- 'src/**' | claude "Apply the code-review skill, focus on security."`
+- `git diff main...HEAD | claude "Apply the team-review skill."`
+- `git show <sha> -- 'src/**' | claude "Apply the team-review skill, focus on security."`
 
 ## Cross-check with Codex
 For high-stakes diffs, pipe the same input to Codex with the same prompt
-and reconcile differences. Disagreements between the two are the most
-interesting findings.
+and reconcile differences. Where the two disagree is where hidden
+assumptions usually live — surface those to the human reviewer.
+
+## Reviewer hygiene
+- A reviewer who wrote the code can't review it. Open a fresh session.
+- Don't approve based on diff size. Five lines can be Critical; five
+  hundred can be Low.
+- "Looks good" is not a review. Each finding is a sentence with evidence.

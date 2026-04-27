@@ -99,7 +99,7 @@ codex "Read .codex/AGENTS.md and confirm you understand the five-attempt rule."
 3. Open Antigravity Agent Manager. Implement against the approved plan.
 4. From the embedded terminal:
    ```bash
-   git diff main...HEAD | claude --verbose "Apply the code-review skill."
+   git diff main...HEAD | claude --verbose "Apply the team-review skill."
    ```
 
 If all three steps run end-to-end, the template is wired correctly.
@@ -121,11 +121,23 @@ If all three steps run end-to-end, the template is wired correctly.
   `AGENTS.md` there too — root-level instructions don't auto-cascade
   through unrelated subprojects.
 
-## 9. Going further
+## 9. Personal global rules (optional)
+
+If you want personal, all-projects defaults that survive across
+repositories, put them in `~/.gemini/GEMINI.md`. This is a **user-level**
+file Antigravity loads globally; it stays out of any single project's
+git history. Examples of what to put there: preferred response language,
+default editor settings, personal "do not"s. Do **not** put project
+policy there — that goes in this repo's `AGENTS.md` instead.
+
+## 10. Going further
 
 - `docs/WHY_ANTIGRAVITY.md` — read before evangelizing this stack to
   teammates. The trade-offs section in particular.
-- `.agents/skills/checkpointing/SKILL.md` — run before any session passes
-  ~20 turns.
-- `.agent/workflows/plan-then-implement.md` — the canonical sandwich
-  workflow.
+- `/checkpointing` workflow (`.agents/workflows/checkpointing.md`) —
+  run before any session passes ~20 turns.
+- `/plan-then-implement` workflow (`.agents/workflows/plan-then-implement.md`)
+  — the canonical sandwich workflow.
+- `/catchup` workflow (`.agents/workflows/catchup.md`) — first thing
+  to run when you (or a fresh agent session) walk into an unfamiliar
+  state of this repo.

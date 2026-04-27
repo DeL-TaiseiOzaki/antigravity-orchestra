@@ -93,9 +93,9 @@ read-only roles. Never paste production secrets into any agent prompt.
 - `docs/plans/<feature>.md` — one plan per feature, approved before implementation.
 - `docs/research/` — investigations, link dumps, library evals.
 - `docs/DESIGN.md` — append-only architectural decisions (date / context / decision / consequences).
-- `.agents/skills/<name>/SKILL.md` — Progressive Disclosure skills shared by Antigravity & Claude.
-- `.agent/workflows/<name>.md` — Antigravity-only deterministic procedures (`// turbo` enables auto-run within allowlist).
-- `.agent/rules/` — Antigravity workspace rules (always-on guidance).
+- `.agents/skills/<name>/SKILL.md` — auto-loaded when relevant.
+- `.agents/workflows/<name>.md` — invoked via `/<name>` (`// turbo` auto-runs within allowlist).
+- `.agents/rules/` — `trigger: always_on` or `model_decision`.
 
 ## 9. Known Constraints
 
